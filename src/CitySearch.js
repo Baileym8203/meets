@@ -24,6 +24,14 @@ handleItemClicked = (suggestion) => {
   }
 
 render() {
+<ul className="suggestions">
+  {this.state.suggestions.map((suggestion) => (
+    <li key={suggestion}>{suggestion}</li>
+  ))}
+  <li key='all'>
+    <b>See all cities</b>
+  </li>
+</ul>
 return (
 
  <div className='CitySearch'>
