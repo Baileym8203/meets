@@ -79,4 +79,4 @@ const mockData = [
     },
   ];
   
-  export { mockData };
+  export default mockData ;
