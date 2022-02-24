@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { Component } from "react";
 
-import './App.css';
+import "./App.css";
 
-import EventList from './EventList';
-import CitySearch from './CitySearch';
+import EventList from "./EventList";
+import CitySearch from "./CitySearch";
+import { getEvents } from "./api";
 
-function App() {
-  return (
-    <div className="App">
-      <CitySearch />
-      <EventList events={[{id: 'test'}, {id: "test"}, {id: "test"}, {id: "test"}]} />
-    </div>
-  );
+class App extends Component {
+  state = {
+    events: [],
+    locations: [],
+  };
+
+  updateEvents = (location) => {
+    getEvents().then((events) => {
+      const locationEvents = events.filter(
+        (event) => event.location === location
+      );
+      this.setState({
+        events: locationEvents,
+      });
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <CitySearch
+          locations={this.state.locations}
+          updateEvents={this.updateEvents}
+        />
+        <EventList events={this.state.events} />
+      </div>
+    );
+  }
 }
 
 export default App;

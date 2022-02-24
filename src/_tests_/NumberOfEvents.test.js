@@ -1,17 +1,17 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import NumberOfEvents from '../NumberOfEvents';
+import React from "react";
+import { shallow } from "enzyme";
+import NumberOfEvents from "../NumberOfEvents";
 
 describe("<NumberOfEvents /> component", () => {
- let NumberOfEventsWrapper;
+  let NumberOfEventsWrapper;
 
- beforeAll(() => {
+  beforeAll(() => {
     NumberOfEventsWrapper = shallow(<NumberOfEvents />);
- });
+  });
 
- test("render the text input of number", () => {
-  expect(NumberOfEventsWrapper.find(".numberOfEvents")).toHaveLength(1);
- })
+  test("render the text input of number", () => {
+    expect(NumberOfEventsWrapper.find(".numberOfEvents")).toHaveLength(1);
+  });
 
   test("change state when number input changes in the text box", () => {
     NumberOfEventsWrapper.setState({ numberOfEvents: "32" });
@@ -21,4 +21,3 @@ describe("<NumberOfEvents /> component", () => {
     expect(NumberOfEventsWrapper.state("numberOfEvents")).toEqual("13");
   });
 });
-
