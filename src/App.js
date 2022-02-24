@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { extractLocations } from "./api";
-import { extractSummarys } from "./api";
 
 import "./App.css";
 import './nprogress.css';
@@ -13,7 +12,6 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    summarys: []
   };
 
   updateEvents = (location) => {
@@ -32,7 +30,7 @@ class App extends Component {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events), summarys: extractSummarys(events) });
+        this.setState({ events, locations: extractLocations(events)});
       }
     });
   }
@@ -48,7 +46,7 @@ class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <EventList events={this.state.events} summarys={this.state.summarys} />
+        <EventList events={this.state.events} />
       </div>
     );
   }
