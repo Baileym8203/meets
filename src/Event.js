@@ -4,6 +4,7 @@ class Event extends Component {
     collapsed: true,
   };
 
+
   handleTheClick = () => {
     this.setState({
       collapsed: !this.state.collapsed,
