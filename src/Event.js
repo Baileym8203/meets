@@ -2,11 +2,6 @@ import React, { Component } from "react";
 class Event extends Component {
   state = {
     collapsed: true,
-    summary: [],
-    dateTime: [],
-    timeZone: [],
-    description: [],
-    location: [],
   };
 
   handleTheClick = () => {
@@ -20,14 +15,14 @@ class Event extends Component {
     const { collapsed } = this.state;
     return (
       <div className="event">
-        <h2 className="summary">{this.state.summary}</h2>
+        <h2 className="summary">{event.summary}</h2>
         <p className="this"></p>
         <p className="start-date">
-          {this.state.dateTime} ({this.state.timeZone})
+          {event.start.dateTime} ({event.start.timeZone})
         </p>
 
         <p className="location">
-          @{this.state.summary} | {this.state.location}
+          @{event.summary} | {event.location}
         </p>
 
         <button
@@ -48,7 +43,7 @@ class Event extends Component {
             <a href={event.htmlLink} rel="noreferrer" target="_blank">
               See details on Google Calendar
             </a>
-            <p className="event-description">{this.state.description}</p>
+            <p className="event-description">{event.description}</p>
           </div>
         )}
       </div>
