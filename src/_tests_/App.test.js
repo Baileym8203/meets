@@ -6,7 +6,7 @@ import EventList from "../EventList";
 import CitySearch from "../CitySearch";
 import mockData from "../mock-data";
 import { extractLocations, getEvents } from "../api";
-
+import NumberOfEvents from "../NumberOfEvents";
 // unit testing!
 
 describe("<App /> component", () => {
@@ -22,6 +22,7 @@ describe("<App /> component", () => {
   test("render CitySearch", () => {
     expect(AppWrapper.find(CitySearch)).toHaveLength(1);
   });
+
 });
 
 // integration testing!
@@ -68,6 +69,14 @@ describe("<App /> integration", () => {
     await suggestionItems.at(suggestionItems.length - 1).simulate("click");
     const allEvents = await getEvents();
     expect(AppWrapper.state("events")).toEqual(allEvents);
+    AppWrapper.unmount();
+  });
+
+  test('pushing over the number of events "50 events"', () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsState = AppWrapper.state("numberOfEvents");
+    expect(NumberOfEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(EventList).props().numberOfEvents).toEqual(50);
     AppWrapper.unmount();
   });
 });
