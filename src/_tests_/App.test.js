@@ -59,7 +59,6 @@ describe("<App /> integration", () => {
       (event) => event.location === selectedCity
     );
     expect(AppWrapper.state("events")).toEqual(eventsToShow);
-    console.error(error);
     AppWrapper.unmount();
   });
 
