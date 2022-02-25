@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -78,11 +78,15 @@ input[type="number"] {
 
 .event {
   padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
+  margin-bottom: 30px;
+  text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  background-color: rgb(240, 239, 239);
+  box-shadow: rgb(8, 8, 8) 0px 5px 16px 1px;
+  margin-top: 30px;
+  color: rgb(31, 31, 31);
 }
 
 .details-btn {
@@ -197,8 +201,6 @@ input[type="number"] {
   letter-spacing: 0.2px;
   font-family: "Roboto";
 }
-
-
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {

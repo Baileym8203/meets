@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {Container, Row, Col, Button} from 'react-bootstrap';
+
 class Event extends Component {
   state = {
     collapsed: true,
@@ -14,9 +16,12 @@ class Event extends Component {
     const { event } = this.props;
     const { collapsed } = this.state;
     return (
-      <div className="event">
+      
+      <Container className="event">
+        <Row>
+          <Col xs={12}>
         <h2 className="summary">{event.summary}</h2>
-        <p className="this"></p>
+        <p className="this">A NEW Event Emerged</p>
         <p className="start-date">
           {event.start.dateTime} ({event.start.timeZone})
         </p>
@@ -25,14 +30,16 @@ class Event extends Component {
           @{event.summary} | {event.location}
         </p>
 
-        <button
-          variant="outline-info"
+        <Button
+          variant="primary"
+          style={{marginTop: "10px"}}
           className={`${collapsed ? "show" : "hide"}-details`}
           onClick={this.handleTheClick}
         >
-          {collapsed ? "Show Details" : "Hide Details"}
-        </button>
-
+          {collapsed ? "Show More" : "Hide More"}
+        </Button>
+        </Col>
+       </Row>
         {!collapsed && (
           <div
             className={`extra-details ${
@@ -46,7 +53,7 @@ class Event extends Component {
             <p className="event-description">{event.description}</p>
           </div>
         )}
-      </div>
+      </Container>
     );
   }
 }

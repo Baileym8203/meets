@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { extractLocations } from "./api";
+import { Container, Row, Col } from "react-bootstrap";
 
 import "./App.css";
 import "./nprogress.css";
@@ -47,16 +48,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Container className="App">
+        <Row>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
+        </Row>
+        <Row>
         <EventList
           events={this.state.events}
           numberOfEvents={this.state.numberOfEvents}
         />
-      </div>
+        </Row>
+      </Container>
     );
   }
 }
