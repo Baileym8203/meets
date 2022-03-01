@@ -48,20 +48,16 @@ class App extends Component {
 
   render() {
     return (
-      <Container className="App">
-        <Row>
+      <div className="App">
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        </Row>
-        <Row>
         <EventList
           events={this.state.events}
           numberOfEvents={this.state.numberOfEvents}
         />
-        </Row>
-      </Container>
+      </div>
     );
   }
 }

@@ -12,7 +12,7 @@ import NumberOfEvents from "../NumberOfEvents";
 describe("<App /> component", () => {
   let AppWrapper;
   beforeAll(() => {
-    AppWrapper = shallow(<App />);
+    AppWrapper = mount(<App />);
   });
 
   test("render list of events", () => {
@@ -22,7 +22,6 @@ describe("<App /> component", () => {
   test("render CitySearch", () => {
     expect(AppWrapper.find(CitySearch)).toHaveLength(1);
   });
-
 });
 
 // integration testing!

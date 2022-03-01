@@ -17,9 +17,8 @@ class Event extends Component {
     const { collapsed } = this.state;
     return (
       
-      <Container className="event">
-        <Row>
-          <Col xs={12}>
+      <div className="event">
+          <div>
         <h2 className="summary">{event.summary}</h2>
         <p className="this">A NEW Event Emerged</p>
         <p className="start-date">
@@ -30,16 +29,16 @@ class Event extends Component {
           @{event.summary} | {event.location}
         </p>
 
-        <Button
+        <button
           variant="primary"
           style={{marginTop: "10px"}}
           className={`${collapsed ? "show" : "hide"}-details`}
+          id="details"
           onClick={this.handleTheClick}
         >
           {collapsed ? "Show More" : "Hide More"}
-        </Button>
-        </Col>
-       </Row>
+        </button>
+        </div>
         {!collapsed && (
           <div
             className={`extra-details ${
@@ -53,7 +52,7 @@ class Event extends Component {
             <p className="event-description">{event.description}</p>
           </div>
         )}
-      </Container>
+      </div>
     );
   }
 }
