@@ -40,7 +40,7 @@ defineFeature(feature, (test) => {
       () => {
         AppWrapper.update();
         const eventNumber = { target: { value: 1 } };
-        AppWrapper.find(".numberOfEvents").simulate("change", eventNumber); // this is the only issue faced task 4.5!
+        AppWrapper.find(".inputnumberOfEvents").simulate("change", eventNumber); // this is the only issue faced task 4.5 simulate not reconized
       }
     );
 
