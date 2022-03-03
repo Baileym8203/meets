@@ -2,11 +2,12 @@ import { loadFeature, defineFeature } from "jest-cucumber";
 import React from "react";
 import { mount } from "enzyme";
 import App from "../App";
-
+import EventList from "../EventList";
 const feature = loadFeature("./src/features/SpecifyNumberOfEvents.feature");
 
 defineFeature(feature, (test) => {
   let AppWrapper;
+  let EventListWrapper;
 
   test("When user hasn’t specified a number, 32 is the default number.", ({
     given,
@@ -33,6 +34,7 @@ defineFeature(feature, (test) => {
   }) => {
     given("the user is on the main page", async () => {
       AppWrapper = await mount(<App />);
+      console.log(AppWrapper.debug());
     });
 
     when(
@@ -40,7 +42,7 @@ defineFeature(feature, (test) => {
       () => {
         AppWrapper.update();
         const eventNumber = { target: { value: 1 } };
-        AppWrapper.find(".inputnumberOfEvents").simulate("change", eventNumber); // this is the only issue faced task 4.5 simulate not reconized
+        AppWrapper.find(".numberOfEvents").simulate("change", eventNumber); // this is the only issue faced task 4.5 simulate not reconized
       }
     );
 

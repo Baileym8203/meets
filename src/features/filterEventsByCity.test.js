@@ -20,7 +20,7 @@ defineFeature(feature, (test) => {
 
     when("the user opens the app", () => {
       AppWrapper = mount(<App />);
-      console.log(AppWrapper.debug());
+    
     });
 
     then("the user should see a list of all upcoming events", () => {
