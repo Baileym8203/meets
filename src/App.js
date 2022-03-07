@@ -5,6 +5,7 @@ import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 import { extractLocations, getEvents } from "./api";
+import { InfoAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -57,6 +58,7 @@ class App extends Component {
     const { events, locations, numberOfEvents } = this.state;
     return (
       <div className="App">
+        <InfoAlert />
         <CitySearch
           locations={locations}
           numberOfEvents={numberOfEvents}
