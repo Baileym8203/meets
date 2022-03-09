@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { InfoAlert } from "./Alert";
+import  { InfoAlert } from "./Alert";
+import { OfflineAlert } from './Alert';
 
 class CitySearch extends Component {
   state = {
@@ -15,26 +16,23 @@ class CitySearch extends Component {
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    if (suggestions.length === 0 && navigator.onLine) {
+    if (suggestions.length === 0 ) {
       this.setState({
         query: value,
-        // adds in the infoAlert
-        infoText:
+        infoText: // adds in the infoAlert
           "We can not find the city you are looking for. Please try another city",
+
       });
-    }
-    if (!navigator.onLine) {
-      this.setState({
-        query: value,
-        infoText:
-          "you are offline the displayed list has been loaded from the cache!",
-      });
-    } else {
+    }  else {
       return this.setState({
         query: value,
         suggestions,
         infoText: "", // removes the infoAlert
       });
+    } if (!navigator.onLine) {
+    this.setState({
+    infoText: "this is offline"
+    })
     }
   };
 
@@ -58,7 +56,7 @@ class CitySearch extends Component {
           className="city"
           value={this.state.query}
           onChange={this.handleInputChanged}
-          style={{ marginTop: "100px" }}
+          style={{marginTop: "100px"}}
           onFocus={() => {
             this.setState({ showSuggestions: true });
           }}

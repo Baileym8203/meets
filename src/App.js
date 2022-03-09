@@ -5,13 +5,13 @@ import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 import { extractLocations, getEvents } from "./api";
-import { InfoAlert } from './Alert';
-
 class App extends Component {
   state = {
     events: [],
     locations: [],
     numberOfEvents: 50,
+    offlineText: "this is online",
+    offlineText2: "This is offline"
   };
 
   componentDidMount() {
@@ -54,11 +54,18 @@ class App extends Component {
     });
   };
 
+  offline = () => {
+  if (!navigator.onLine) {
+  this.setState({
+  offlineText: "This is the offline screen"
+    })
+   }
+  }
+
   render() {
     const { events, locations, numberOfEvents } = this.state;
     return (
       <div className="App">
-        <InfoAlert />
         <CitySearch
           locations={locations}
           numberOfEvents={numberOfEvents}
