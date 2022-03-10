@@ -47,3 +47,20 @@ class ErrorAlert extends Alert {
 }
 
 export { ErrorAlert };
+
+class OfflineAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.color = "red";
+  }
+
+  render() {
+    return (
+      <div className="Alert-error">
+        <p style={this.getStyle()}>{this.props.offline}</p>
+      </div>
+    );
+  }
+}
+
+export { OfflineAlert };

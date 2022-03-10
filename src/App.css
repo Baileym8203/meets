@@ -51,13 +51,12 @@ input[type="number"] {
 
 .suggestions {
   width: 250px;
-  position: absolute;
+  position: relative;
   z-index: 2;
   align-self: center;
-  margin: 0;
-  top: 43px;
   font-size: 14px;
-  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.75);
+ margin-top: 0px;
 }
 
 .suggestions > li {
@@ -137,9 +136,6 @@ input[type="number"] {
   top: 20px;
 }
 
-.suggestions {
-margin-top: 100px;
-}
 
 .data-vis-wrapper {
   display: flex;

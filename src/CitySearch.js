@@ -8,6 +8,7 @@ class CitySearch extends Component {
     suggestions: [],
     showSuggestions: undefined,
     infoText: "",
+    offlineText: ""
   };
 
   handleInputChanged = (event) => {
@@ -21,17 +22,18 @@ class CitySearch extends Component {
         query: value,
         infoText: // adds in the infoAlert
           "We can not find the city you are looking for. Please try another city",
-
+        offlineText: ""
       });
     }  else {
       return this.setState({
         query: value,
         suggestions,
         infoText: "", // removes the infoAlert
+        offlineText: ""
       });
     } if (!navigator.onLine) {
     this.setState({
-    infoText: "this is offline"
+    offlineText: "this is offline"
     })
     }
   };
@@ -50,7 +52,8 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
-        <InfoAlert text={this.state.infoText} />
+        <OfflineAlert offline={this.state.offlineText} />
+        <InfoAlert text={this.state.infoText}/>
         <input
           type="text"
           className="city"
